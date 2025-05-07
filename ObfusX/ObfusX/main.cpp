@@ -12,7 +12,7 @@ int wmain(int argc, wchar_t* argv[]) {
     _setmode(_fileno(stderr), _O_U16TEXT);
 
     std::wcout << L"[*] ObfusX - VMProtect-like Virtualization Packer\n\n";
-
+    
     if (argc != 2) {
         std::wcout << L"[!] 사용법: 실행할 EXE 파일을 ObfusX.exe 위로 드래그하세요.\n";
         std::wcout << L"[!] 또는 명령줄에서: ObfusX.exe <target.exe>\n";
@@ -27,14 +27,6 @@ int wmain(int argc, wchar_t* argv[]) {
     if (!fs::exists(inputPath)) {
         std::wcerr << L"[!] 입력 파일을 찾을 수 없습니다: " << inputPath << std::endl;
         std::wcerr << L"[DEBUG] 현재 작업 디렉터리: " << fs::current_path() << std::endl;
-        std::wcout << L"\n[Enter] 키를 누르면 종료됩니다...";
-        std::wcin.get();
-        return 1;
-    }
-
-    std::wstring stubPath = fs::absolute(L"ObfusXStub.bin");
-    if (!fs::exists(stubPath)) {
-        std::wcerr << L"[!] ObfusXStub.bin 파일이 현재 경로에 없습니다: " << stubPath << std::endl;
         std::wcout << L"\n[Enter] 키를 누르면 종료됩니다...";
         std::wcin.get();
         return 1;

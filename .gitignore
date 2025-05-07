@@ -38,3 +38,5 @@ Makefile
 *.VC.opendb
 *.rsp
 *.log
+
+Library/

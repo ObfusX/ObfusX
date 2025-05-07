@@ -1,13 +1,12 @@
 #include "Crypto.h"
 
-const uint8_t XOR_KEY[16] = {
-    0x4F, 0x62, 0x66, 0x75, 0x73, 0x58, 0x31, 0x32,
-    0x33, 0x21, 0x2A, 0x7E, 0x5E, 0x6B, 0x69, 0x74
-};
+// 지금은 일단 1 byte의 XOR 키만
+constexpr uint8_t xor_key = 0x5A;
+// TODO: 여러개의 KEY를 MOD 연산으로 XOR 적용시켜보기
 
 void EncryptBytecode(std::vector<uint8_t>& data) {
     for (size_t i = 0; i < data.size(); i++) {
-        data[i] ^= XOR_KEY[i % 16];
+        data[i] ^= xor_key;
     }
 }
 
